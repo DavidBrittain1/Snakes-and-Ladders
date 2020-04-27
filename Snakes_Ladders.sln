@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snakes_Ladders", "Snakes_Ladders\Snakes_Ladders.csproj", "{C8D2DCF7-36F1-4414-9A5D-FB987F1AC868}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8D2DCF7-36F1-4414-9A5D-FB987F1AC868}.Debug|x86.ActiveCfg = Debug|x86
+		{C8D2DCF7-36F1-4414-9A5D-FB987F1AC868}.Debug|x86.Build.0 = Debug|x86
+		{C8D2DCF7-36F1-4414-9A5D-FB987F1AC868}.Release|x86.ActiveCfg = Release|x86
+		{C8D2DCF7-36F1-4414-9A5D-FB987F1AC868}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {07E89A13-2093-4C5C-8196-5156ED771F35}
+	EndGlobalSection
+EndGlobal
