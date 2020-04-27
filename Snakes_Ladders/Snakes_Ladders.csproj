@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Edited Snakes and Ladders Board.jpg" />
+    <Content Include="Content\kirby3.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
