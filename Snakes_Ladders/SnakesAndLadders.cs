@@ -7,12 +7,13 @@ namespace Snakes_Ladders
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    public class SnakesAndLadders : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
-        public Game1()
+        Texture2D dieTexture;
+        Board board;
+        public SnakesAndLadders()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -40,7 +41,12 @@ namespace Snakes_Ladders
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            dieTexture = Content.Load<Texture2D>("die");
+            
+
+            var dice = new Dice(dieTexture);
+
+            board = new Board(dice);
         }
 
         /// <summary>
@@ -75,8 +81,9 @@ namespace Snakes_Ladders
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            board.Draw(spriteBatch);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

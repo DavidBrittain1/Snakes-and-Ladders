@@ -14,7 +14,7 @@ namespace Snakes_Ladders
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
+            using (var game = new SnakesAndLadders())
                 game.Run();
         }
     }
