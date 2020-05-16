@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,11 @@ namespace Snakes_Ladders
         int playerPos;
 
         public void Draw(SpriteBatch spriteBatch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Load(ContentManager contentManager, GraphicsDevice graphicsDevice)
         {
             throw new NotImplementedException();
         }

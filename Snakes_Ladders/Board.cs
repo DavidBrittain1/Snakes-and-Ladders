@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,10 @@ namespace Snakes_Ladders
 {
     class Board : IGameObject
     {
+        private Texture2D boardTexture;
         Dice dice;
+        Rectangle boardRectangle;
+        
         public void Update(GameTime gameTime)
         {
                         
@@ -18,12 +22,20 @@ namespace Snakes_Ladders
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(boardTexture, boardRectangle, Color.White);
             dice.Draw(spriteBatch);
         }
 
-        public Board(Dice dice)
+        public void Load(ContentManager contentManager, GraphicsDevice graphicsDevice)
         {
-            this.dice = dice;
+            boardRectangle = new Rectangle(0, 0, graphicsDevice.Viewport.Width, graphicsDevice.Viewport.Height);
+            boardTexture = contentManager.Load<Texture2D>("Edited Snakes and Ladders Board");
+            dice.Load(contentManager, graphicsDevice);
+        }
+
+        public Board()
+        {
+            dice = new Dice();
         }
     }
 }

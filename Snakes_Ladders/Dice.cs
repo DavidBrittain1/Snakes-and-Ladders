@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -76,7 +77,13 @@ namespace Snakes_Ladders
             throw new NotImplementedException();
         }
 
-        public Dice(Texture2D dieTexture)
+        public void Load(ContentManager contentManager, GraphicsDevice graphicsDevice)
+        {
+            dieTexture = contentManager.Load<Texture2D>("die");
+          
+        }
+
+        public Dice()
         {
             sourceRectangle1 = new Rectangle(0, 0, 128, 128);
             sourceRectangle2 = new Rectangle(128, 0, 128, 128);
@@ -85,7 +92,7 @@ namespace Snakes_Ladders
             sourceRectangle5 = new Rectangle(512, 0, 128, 128);
             sourceRectangle6 = new Rectangle(640, 0, 128, 128);
 
-            this.dieTexture = dieTexture;
+           
             dice1 = new Rectangle(1, 1, 50, 50);
             dice2 = new Rectangle(1, 51, 50, 50);
             diceValue1 = 1;

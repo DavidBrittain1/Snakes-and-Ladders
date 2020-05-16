@@ -12,6 +12,7 @@ namespace Snakes_Ladders
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D dieTexture;
+        Texture2D boardTexture;
         Board board;
         public SnakesAndLadders()
         {
@@ -40,13 +41,8 @@ namespace Snakes_Ladders
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            dieTexture = Content.Load<Texture2D>("die");
-            
-
-            var dice = new Dice(dieTexture);
-
-            board = new Board(dice);
+            board = new Board();
+            board.Load(Content, GraphicsDevice);
         }
 
         /// <summary>
