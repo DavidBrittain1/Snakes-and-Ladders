@@ -17,7 +17,7 @@ namespace Snakes_Ladders
         
         public void Update(GameTime gameTime)
         {
-                        
+            dice.Update(gameTime);            
         }
 
         public void Draw(SpriteBatch spriteBatch)

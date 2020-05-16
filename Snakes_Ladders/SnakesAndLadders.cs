@@ -64,8 +64,7 @@ namespace Snakes_Ladders
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
-
+            board.Update(gameTime);
             base.Update(gameTime);
         }
 

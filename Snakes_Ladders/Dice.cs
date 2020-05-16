@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +12,14 @@ namespace Snakes_Ladders
 {
     class Dice : IGameObject
     {
+        
+        bool rolled = false;
         int diceValue1, diceValue2;
         Rectangle dice1, dice2;
         Rectangle sourceRectangle1, sourceRectangle2, sourceRectangle3, sourceRectangle4, sourceRectangle5, sourceRectangle6;
         Random random;
         Texture2D dieTexture;
-        public void Roll()
-        {
-            diceValue1 = random.Next(1, 7);
-            diceValue2 = random.Next(1, 7);
-        }
+        
         public void Draw(SpriteBatch spriteBatch)
         {
             
@@ -74,7 +73,17 @@ namespace Snakes_Ladders
 
         public void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            var mouseState = Mouse.GetState();
+            if (IsMouseOnDice(mouseState) && mouseState.LeftButton == ButtonState.Pressed && rolled == false)
+            {
+                rolled = true;
+                Roll();
+            }
+
+            if (mouseState.LeftButton == ButtonState.Released)
+            {
+                rolled = false;
+            }
         }
 
         public void Load(ContentManager contentManager, GraphicsDevice graphicsDevice)
@@ -98,6 +107,17 @@ namespace Snakes_Ladders
             diceValue1 = 1;
             diceValue2 = 4;
             random = new Random();
+        }
+
+        private bool IsMouseOnDice(MouseState mouseState)
+        {
+            Rectangle mouseRectangle = new Rectangle(mouseState.Position, new Point(1, 1));
+            return dice1.Intersects(mouseRectangle) || dice2.Intersects(mouseRectangle);
+        }
+        private void Roll()
+        {
+            diceValue1 = random.Next(1, 7);
+            diceValue2 = random.Next(1, 7);
         }
     }
 }
