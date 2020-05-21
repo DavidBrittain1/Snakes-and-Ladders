@@ -14,12 +14,14 @@ namespace Snakes_Ladders
         Texture2D dieTexture;
         Texture2D boardTexture;
         Board board;
+        Menu menu;
+
         public SnakesAndLadders()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
-
+        
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -28,7 +30,7 @@ namespace Snakes_Ladders
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            IsMouseVisible = true;
 
             base.Initialize();
         }
@@ -43,6 +45,8 @@ namespace Snakes_Ladders
             spriteBatch = new SpriteBatch(GraphicsDevice);
             board = new Board();
             board.Load(Content, GraphicsDevice);
+            menu = new Menu();
+            menu.Load(Content, GraphicsDevice);
         }
 
         /// <summary>
@@ -65,6 +69,7 @@ namespace Snakes_Ladders
                 Exit();
 
             board.Update(gameTime);
+            menu.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -78,6 +83,7 @@ namespace Snakes_Ladders
 
             spriteBatch.Begin();
             board.Draw(spriteBatch);
+            menu.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
