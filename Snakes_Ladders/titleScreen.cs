@@ -11,11 +11,11 @@ namespace Snakes_Ladders
 {
     class TitleScreen : IGameObject
     {
-        private MenuScreenItem startButton;
+        private CenteredMenuScreenItem startButton;
 
         public TitleScreen()
         {
-            startButton = new MenuScreenItem("Start", new Point(0, 0));
+            startButton = new CenteredMenuScreenItem("Start");
         }
 
         public void Draw(SpriteBatch spriteBatch)

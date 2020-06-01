@@ -7,15 +7,14 @@ using Snakes_Ladders;
 public class MenuScreenItem : IGameObject
 {
     private string contents;
-    private Rectangle menuRectangle;
+    protected Rectangle menuRectangle;
     private SpriteFont menuFont;
     private bool isMouseOver;
-    private Point position;
 
     public MenuScreenItem(string contents, Point position)
     {
         this.contents = contents;
-        this.position = position;
+        menuRectangle = new Rectangle(position, Point.Zero);
         isMouseOver = false;
     }
 
@@ -31,12 +30,10 @@ public class MenuScreenItem : IGameObject
         }
     }
 
-    public void Load(ContentManager contentManager, GraphicsDevice graphicsDevice)
+    public virtual void Load(ContentManager contentManager, GraphicsDevice graphicsDevice)
     {
         menuFont = contentManager.Load<SpriteFont>("menuFont");
-        
-        var size = menuFont.MeasureString(contents).ToPoint();
-        menuRectangle = new Rectangle(position, size);
+        menuRectangle.Size = menuFont.MeasureString(contents).ToPoint();
     }
 
     public void Update(GameTime gameTime)
@@ -48,5 +45,6 @@ public class MenuScreenItem : IGameObject
     {
         isMouseOver = menuRectangle.Contains(mousePosition.X, mousePosition.Y);
     }
+
 }
 
