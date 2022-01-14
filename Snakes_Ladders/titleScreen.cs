@@ -18,6 +18,8 @@ namespace Snakes_Ladders
             startButton = new CenteredMenuScreenItem("Start");
         }
 
+        public bool IsStartPressed { get; set; }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             startButton.Draw(spriteBatch);
@@ -31,6 +33,7 @@ namespace Snakes_Ladders
         public void Update(GameTime gameTime)
         {
             startButton.Update(gameTime);
+            IsStartPressed = startButton.IsPressed;
         }
     }
 }
