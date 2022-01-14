@@ -18,6 +18,8 @@ public class MenuScreenItem : IGameObject
         isMouseOver = false;
     }
 
+    public bool IsPressed { get; set; }
+
     public void Draw(SpriteBatch spriteBatch)
     {
         if (isMouseOver)
@@ -38,13 +40,18 @@ public class MenuScreenItem : IGameObject
 
     public void Update(GameTime gameTime)
     {
-        UpdateMouseOver(Mouse.GetState().Position);
-    }
+        var mouseState = Mouse.GetState();
+        var mousePosition = mouseState.Position;
 
-    private void UpdateMouseOver(Point mousePosition)
-    {
-        isMouseOver = menuRectangle.Contains(mousePosition.X, mousePosition.Y);
+        if (menuRectangle.Contains(mousePosition.X, mousePosition.Y))
+        {
+            isMouseOver = true;
+            IsPressed = mouseState.LeftButton == ButtonState.Pressed;
+        }
+        else
+        {
+            isMouseOver = false;
+        }
     }
-
 }
 
